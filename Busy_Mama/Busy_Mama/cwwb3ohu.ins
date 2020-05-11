@@ -1,0 +1,488 @@
+#pragma once
+#include "Task.h"
+#include <ctime>
+#include "Conversions.h"
+#include "UserTasks.h"
+#include "User.h"
+#include <set>
+#include "Priority.h"
+
+using namespace std;
+namespace Busy_Mama {
+
+	using namespace System;
+	using namespace System::ComponentModel;
+	using namespace System::Collections;
+	using namespace System::Windows::Forms;
+	using namespace System::Data;
+	using namespace System::Drawing;
+	static User user;
+	static set<string> s ;
+	/// <summary>
+	/// Summary for UserTasks
+	/// </summary>
+	public ref class UserTasks : public System::Windows::Forms::Form
+	{
+	public:
+		
+		UserTasks(void)
+		{
+			InitializeComponent();
+			//
+			//TODO: Add the constructor code here
+			//
+		}
+
+	protected:
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		~UserTasks()
+		{
+			if (components)
+			{
+				delete components;
+			}
+		}
+	private: System::Windows::Forms::TabControl^  tabControl1;
+	protected:
+	private: System::Windows::Forms::TabPage^  tabPage1;
+
+
+	private: System::Windows::Forms::TabPage^  tabPage2;
+	private: System::Windows::Forms::Button^  btnAddTask;
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::DateTimePicker^  dtbTaskDate;
+
+	private: System::Windows::Forms::ComboBox^  cbAddTaskPriority;
+	private: System::Windows::Forms::Button^  btnShowTodayTasks;
+
+	private: System::Windows::Forms::Button^  btnShowAllTasks;
+	private: System::Windows::Forms::DataGridView^  dgShowTasks;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  TaskName;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Priority;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  TaskDate;
+	private: System::Windows::Forms::TabPage^  tabPage3;
+	private: System::Windows::Forms::Label^  label6;
+	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::Button^  btnUpdate;
+	private: System::Windows::Forms::DateTimePicker^  dtpUpdateTaskDate;
+	private: System::Windows::Forms::ComboBox^  cbTaskPriority;
+	private: System::Windows::Forms::ComboBox^  cbTaskName;
+	private: System::Windows::Forms::TextBox^  txtTaskNameAdd;
+	private: System::Windows::Forms::ComboBox^  cbShowTaskDate;
+
+
+			
+	private:
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		System::ComponentModel::Container ^components;
+
+#pragma region Windows Form Designer generated code
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		void InitializeComponent(void)
+		{
+			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->btnAddTask = (gcnew System::Windows::Forms::Button());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->dtbTaskDate = (gcnew System::Windows::Forms::DateTimePicker());
+			this->cbAddTaskPriority = (gcnew System::Windows::Forms::ComboBox());
+			this->txtTaskNameAdd = (gcnew System::Windows::Forms::TextBox());
+			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->cbShowTaskDate = (gcnew System::Windows::Forms::ComboBox());
+			this->btnShowTodayTasks = (gcnew System::Windows::Forms::Button());
+			this->btnShowAllTasks = (gcnew System::Windows::Forms::Button());
+			this->dgShowTasks = (gcnew System::Windows::Forms::DataGridView());
+			this->TaskName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Priority = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->TaskDate = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->btnUpdate = (gcnew System::Windows::Forms::Button());
+			this->dtpUpdateTaskDate = (gcnew System::Windows::Forms::DateTimePicker());
+			this->cbTaskPriority = (gcnew System::Windows::Forms::ComboBox());
+			this->cbTaskName = (gcnew System::Windows::Forms::ComboBox());
+			this->tabControl1->SuspendLayout();
+			this->tabPage1->SuspendLayout();
+			this->tabPage2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgShowTasks))->BeginInit();
+			this->tabPage3->SuspendLayout();
+			this->SuspendLayout();
+			// 
+			// tabControl1
+			// 
+			this->tabControl1->Controls->Add(this->tabPage1);
+			this->tabControl1->Controls->Add(this->tabPage2);
+			this->tabControl1->Controls->Add(this->tabPage3);
+			this->tabControl1->Location = System::Drawing::Point(0, 2);
+			this->tabControl1->Multiline = true;
+			this->tabControl1->Name = L"tabControl1";
+			this->tabControl1->RightToLeft = System::Windows::Forms::RightToLeft::No;
+			this->tabControl1->SelectedIndex = 0;
+			this->tabControl1->Size = System::Drawing::Size(615, 393);
+			this->tabControl1->SizeMode = System::Windows::Forms::TabSizeMode::Fixed;
+			this->tabControl1->TabIndex = 0;
+			// 
+			// tabPage1
+			// 
+			this->tabPage1->Controls->Add(this->btnAddTask);
+			this->tabPage1->Controls->Add(this->label3);
+			this->tabPage1->Controls->Add(this->label2);
+			this->tabPage1->Controls->Add(this->label1);
+			this->tabPage1->Controls->Add(this->dtbTaskDate);
+			this->tabPage1->Controls->Add(this->cbAddTaskPriority);
+			this->tabPage1->Controls->Add(this->txtTaskNameAdd);
+			this->tabPage1->Location = System::Drawing::Point(4, 25);
+			this->tabPage1->Name = L"tabPage1";
+			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage1->RightToLeft = System::Windows::Forms::RightToLeft::No;
+			this->tabPage1->Size = System::Drawing::Size(607, 364);
+			this->tabPage1->TabIndex = 0;
+			this->tabPage1->Text = L"Add New Task";
+			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// btnAddTask
+			// 
+			this->btnAddTask->Location = System::Drawing::Point(193, 211);
+			this->btnAddTask->Name = L"btnAddTask";
+			this->btnAddTask->Size = System::Drawing::Size(133, 39);
+			this->btnAddTask->TabIndex = 6;
+			this->btnAddTask->Text = L"Add Task";
+			this->btnAddTask->UseVisualStyleBackColor = true;
+			this->btnAddTask->Click += gcnew System::EventHandler(this, &UserTasks::btnAddTask_Click);
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(335, 101);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(73, 17);
+			this->label3->TabIndex = 5;
+			this->label3->Text = L"Task Date";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(164, 102);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(52, 17);
+			this->label2->TabIndex = 4;
+			this->label2->Text = L"Priority";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(29, 101);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(80, 17);
+			this->label1->TabIndex = 3;
+			this->label1->Text = L"Task Name";
+			// 
+			// dtbTaskDate
+			// 
+			this->dtbTaskDate->Format = System::Windows::Forms::DateTimePickerFormat::Short;
+			this->dtbTaskDate->Location = System::Drawing::Point(338, 124);
+			this->dtbTaskDate->Name = L"dtbTaskDate";
+			this->dtbTaskDate->Size = System::Drawing::Size(230, 22);
+			this->dtbTaskDate->TabIndex = 2;
+			// 
+			// cbAddTaskPriority
+			// 
+			this->cbAddTaskPriority->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->cbAddTaskPriority->FormattingEnabled = true;
+			this->cbAddTaskPriority->Items->AddRange(gcnew cli::array< System::Object^  >(10) {
+				L"1", L"2", L"3", L"4", L"5", L"6", L"7",
+					L"8", L"9", L"10"
+			});
+			this->cbAddTaskPriority->Location = System::Drawing::Point(167, 122);
+			this->cbAddTaskPriority->Name = L"cbAddTaskPriority";
+			this->cbAddTaskPriority->Size = System::Drawing::Size(121, 24);
+			this->cbAddTaskPriority->TabIndex = 1;
+			// 
+			// txtTaskNameAdd
+			// 
+			this->txtTaskNameAdd->Location = System::Drawing::Point(29, 124);
+			this->txtTaskNameAdd->Name = L"txtTaskNameAdd";
+			this->txtTaskNameAdd->Size = System::Drawing::Size(100, 22);
+			this->txtTaskNameAdd->TabIndex = 0;
+			// 
+			// tabPage2
+			// 
+			this->tabPage2->Controls->Add(this->cbShowTaskDate);
+			this->tabPage2->Controls->Add(this->btnShowTodayTasks);
+			this->tabPage2->Controls->Add(this->btnShowAllTasks);
+			this->tabPage2->Controls->Add(this->dgShowTasks);
+			this->tabPage2->Location = System::Drawing::Point(4, 25);
+			this->tabPage2->Name = L"tabPage2";
+			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage2->Size = System::Drawing::Size(607, 364);
+			this->tabPage2->TabIndex = 1;
+			this->tabPage2->Text = L"Show Tasks";
+			this->tabPage2->UseVisualStyleBackColor = true;
+			this->tabPage2->Enter += gcnew System::EventHandler(this, &UserTasks::tabPage2_Enter);
+			// 
+			// cbShowTaskDate
+			// 
+			this->cbShowTaskDate->FormattingEnabled = true;
+			this->cbShowTaskDate->Location = System::Drawing::Point(26, 50);
+			this->cbShowTaskDate->Name = L"cbShowTaskDate";
+			this->cbShowTaskDate->Size = System::Drawing::Size(121, 24);
+			this->cbShowTaskDate->TabIndex = 3;
+			// 
+			// btnShowTodayTasks
+			// 
+			this->btnShowTodayTasks->Location = System::Drawing::Point(8, 218);
+			this->btnShowTodayTasks->Name = L"btnShowTodayTasks";
+			this->btnShowTodayTasks->Size = System::Drawing::Size(153, 48);
+			this->btnShowTodayTasks->TabIndex = 2;
+			this->btnShowTodayTasks->Text = L"Show Today Tasks";
+			this->btnShowTodayTasks->UseVisualStyleBackColor = true;
+			this->btnShowTodayTasks->Click += gcnew System::EventHandler(this, &UserTasks::btnShowTodayTasks_Click);
+			// 
+			// btnShowAllTasks
+			// 
+			this->btnShowAllTasks->Location = System::Drawing::Point(26, 107);
+			this->btnShowAllTasks->Name = L"btnShowAllTasks";
+			this->btnShowAllTasks->Size = System::Drawing::Size(121, 36);
+			this->btnShowAllTasks->TabIndex = 1;
+			this->btnShowAllTasks->Text = L"Show Tasks";
+			this->btnShowAllTasks->UseVisualStyleBackColor = true;
+			this->btnShowAllTasks->Click += gcnew System::EventHandler(this, &UserTasks::btnShowAllTasks_Click);
+			// 
+			// dgShowTasks
+			// 
+			this->dgShowTasks->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
+			this->dgShowTasks->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgShowTasks->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+				this->TaskName,
+					this->Priority, this->TaskDate
+			});
+			this->dgShowTasks->Location = System::Drawing::Point(203, 3);
+			this->dgShowTasks->Name = L"dgShowTasks";
+			this->dgShowTasks->RowTemplate->Height = 24;
+			this->dgShowTasks->Size = System::Drawing::Size(404, 360);
+			this->dgShowTasks->TabIndex = 0;
+			// 
+			// TaskName
+			// 
+			this->TaskName->HeaderText = L"Task Name";
+			this->TaskName->Name = L"TaskName";
+			this->TaskName->ReadOnly = true;
+			// 
+			// Priority
+			// 
+			this->Priority->HeaderText = L"Priority";
+			this->Priority->Name = L"Priority";
+			this->Priority->ReadOnly = true;
+			// 
+			// TaskDate
+			// 
+			this->TaskDate->HeaderText = L"Task Date";
+			this->TaskDate->Name = L"TaskDate";
+			this->TaskDate->ReadOnly = true;
+			// 
+			// tabPage3
+			// 
+			this->tabPage3->Controls->Add(this->label6);
+			this->tabPage3->Controls->Add(this->label5);
+			this->tabPage3->Controls->Add(this->label4);
+			this->tabPage3->Controls->Add(this->btnUpdate);
+			this->tabPage3->Controls->Add(this->dtpUpdateTaskDate);
+			this->tabPage3->Controls->Add(this->cbTaskPriority);
+			this->tabPage3->Controls->Add(this->cbTaskName);
+			this->tabPage3->Location = System::Drawing::Point(4, 25);
+			this->tabPage3->Name = L"tabPage3";
+			this->tabPage3->Size = System::Drawing::Size(607, 364);
+			this->tabPage3->TabIndex = 2;
+			this->tabPage3->Text = L"Update Task";
+			this->tabPage3->UseVisualStyleBackColor = true;
+			this->tabPage3->Enter += gcnew System::EventHandler(this, &UserTasks::tabPage3_Enter);
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(354, 87);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(73, 17);
+			this->label6->TabIndex = 6;
+			this->label6->Text = L"Task Date";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(195, 87);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(52, 17);
+			this->label5->TabIndex = 5;
+			this->label5->Text = L"Priority";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(44, 87);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(80, 17);
+			this->label4->TabIndex = 4;
+			this->label4->Text = L"Task Name";
+			// 
+			// btnUpdate
+			// 
+			this->btnUpdate->Location = System::Drawing::Point(233, 207);
+			this->btnUpdate->Name = L"btnUpdate";
+			this->btnUpdate->Size = System::Drawing::Size(86, 39);
+			this->btnUpdate->TabIndex = 3;
+			this->btnUpdate->Text = L"Update";
+			this->btnUpdate->UseVisualStyleBackColor = true;
+			// 
+			// dtpUpdateTaskDate
+			// 
+			this->dtpUpdateTaskDate->Format = System::Windows::Forms::DateTimePickerFormat::Short;
+			this->dtpUpdateTaskDate->Location = System::Drawing::Point(357, 112);
+			this->dtpUpdateTaskDate->Name = L"dtpUpdateTaskDate";
+			this->dtpUpdateTaskDate->Size = System::Drawing::Size(200, 22);
+			this->dtpUpdateTaskDate->TabIndex = 2;
+			// 
+			// cbTaskPriority
+			// 
+			this->cbTaskPriority->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->cbTaskPriority->FormattingEnabled = true;
+			this->cbTaskPriority->Items->AddRange(gcnew cli::array< System::Object^  >(10) {
+				L"1", L"2", L"3", L"4", L"5", L"6", L"7",
+					L"8", L"9", L"10"
+			});
+			this->cbTaskPriority->Location = System::Drawing::Point(198, 110);
+			this->cbTaskPriority->Name = L"cbTaskPriority";
+			this->cbTaskPriority->Size = System::Drawing::Size(121, 24);
+			this->cbTaskPriority->TabIndex = 1;
+			// 
+			// cbTaskName
+			// 
+			this->cbTaskName->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->cbTaskName->FormattingEnabled = true;
+			this->cbTaskName->Location = System::Drawing::Point(44, 110);
+			this->cbTaskName->Name = L"cbTaskName";
+			this->cbTaskName->Size = System::Drawing::Size(121, 24);
+			this->cbTaskName->TabIndex = 0;
+			// 
+			// UserTasks
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(609, 393);
+			this->Controls->Add(this->tabControl1);
+			this->Name = L"UserTasks";
+			this->Text = L"UserTasks";
+			this->tabControl1->ResumeLayout(false);
+			this->tabPage1->ResumeLayout(false);
+			this->tabPage1->PerformLayout();
+			this->tabPage2->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgShowTasks))->EndInit();
+			this->tabPage3->ResumeLayout(false);
+			this->tabPage3->PerformLayout();
+			this->ResumeLayout(false);
+
+		}
+#pragma endregion
+
+		
+	private: System::Void btnAddTask_Click(System::Object^  sender, System::EventArgs^  e) 
+	{
+			DateTime t = t.Now;
+			string currentDate =cc.StringTostring(t.ToString("MM/dd/yyyy"));
+			 Task newTask;
+			 string name = cc.StringTostring(txtTaskNameAdd->Text);
+			 int priority =  Convert::ToInt32(cbAddTaskPriority->Text);
+			 string date = cc.StringTostring((dtbTaskDate->Value).ToString());
+
+			newTask.AddNewTask(name , priority , date);
+
+			if (currentDate == date)
+				user.TodayTasks.push(newTask);
+
+			user.userTasks.push_back(newTask);
+			s.insert(date);
+	}
+
+			 Conversions cc;
+			 array<String ^> ^ FillComboBoxNames()
+			 {
+				 array<String ^> ^ names = gcnew array<String ^>(user.userTasks.size());
+				 for (int i = 0; i < user.userTasks.size(); i++)
+					 names[i] = cc.stringToString(user.userTasks[i].taskName);
+				 return names;
+			
+			 }
+			 array<String^> ^FillComboBoxDates()
+			 {
+				 /*int i = 0;
+
+				 if (!s.empty())
+				 for (auto it = s.begin(); it != s.end(); ++it)
+				 {
+					 TaskDates[i] = cc.stringToString(*it);
+					 i++;
+				 }*/
+				 array<String^> ^ TaskDates = gcnew array<String^>(user.userTasks.size());
+				 for (int i = 0; i < user.userTasks.size(); i++)
+					 TaskDates[i] = cc.stringToString(user.userTasks[i].taskDate);
+
+				 return TaskDates;
+			 }
+
+private: System::Void btnShowAllTasks_Click(System::Object^  sender, System::EventArgs^  e)
+{
+		   
+			 dgShowTasks->Rows->Add(user.userTasks.size());
+			
+			 for (int i = 0; i < user.userTasks.size();i++)
+			 {
+				 if (user.userTasks[i].taskDate == cc.StringTostring(cbShowTaskDate->Text))
+				 {
+				 dgShowTasks->Rows[i]->Cells[0]->Value = cc.stringToString(user.userTasks[i].taskName);
+				 dgShowTasks->Rows[i]->Cells[1]->Value = user.userTasks[i].taskPriority.ToString();
+				 dgShowTasks->Rows[i]->Cells[2]->Value = cc.stringToString(user.userTasks[i].taskDate);
+				 }
+			 }
+			
+}
+private: System::Void tabPage3_Click(System::Object^  sender, System::EventArgs^  e)
+{
+			 
+}
+private: System::Void tabPage3_Enter(System::Object^  sender, System::EventArgs^  e) 
+{
+			 array<String ^> ^ TaskNames = FillComboBoxNames();
+			 cbTaskName->Items->AddRange(TaskNames);
+}
+
+		
+
+private: System::Void tabPage2_Enter(System::Object^  sender, System::EventArgs^  e)
+{
+			 array<String^> ^ TaskDates = FillComboBoxDates();
+
+			 cbShowTaskDate->Items->AddRange(TaskDates);
+ 
+}
+
+private: System::Void btnShowTodayTasks_Click(System::Object^  sender, System::EventArgs^  e)
+{
+			 dgShowTasks->Rows->Add(user.TodayTasks.size());
+
+			 priority_queue<Task, vector<Task>, Priority> temp = user.TodayTasks;
+}
+};
+}

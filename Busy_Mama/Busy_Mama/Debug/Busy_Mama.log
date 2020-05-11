@@ -1,0 +1,35 @@
+﻿Build started 12/25/2019 10:23:30 AM.
+     1>Project "C:\Users\lenovo\Documents\Visual Studio 2013\Projects\Busy_Mama\Busy_Mama\Busy_Mama.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib Start.cpp main.cpp
+         Start.cpp
+     1>c:\users\lenovo\documents\visual studio 2013\projects\busy_mama\busy_mama\UserTasks.h(59): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\lenovo\documents\visual studio 2013\projects\busy_mama\busy_mama\UserTasks.h(634): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\lenovo\documents\visual studio 2013\projects\busy_mama\busy_mama\UserTasks.h(787): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\lenovo\documents\visual studio 2013\projects\busy_mama\busy_mama\UserLogin.h(128): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\lenovo\documents\visual studio 2013\projects\busy_mama\busy_mama\UserLogin.h(281): warning C4018: '<' : signed/unsigned mismatch
+         main.cpp
+     1>c:\users\lenovo\documents\visual studio 2013\projects\busy_mama\busy_mama\UserTasks.h(59): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\lenovo\documents\visual studio 2013\projects\busy_mama\busy_mama\UserTasks.h(634): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\lenovo\documents\visual studio 2013\projects\busy_mama\busy_mama\UserTasks.h(787): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\lenovo\documents\visual studio 2013\projects\busy_mama\busy_mama\UserLogin.h(128): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\lenovo\documents\visual studio 2013\projects\busy_mama\busy_mama\UserLogin.h(281): warning C4018: '<' : signed/unsigned mismatch
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\lenovo\Documents\Visual Studio 2013\Projects\Busy_Mama\Debug\Busy_Mama.exe" /INCREMENTAL /NOLOGO /ASSEMBLYRESOURCE:Debug\Busy_Mama.Start.resources /ASSEMBLYRESOURCE:Debug\Busy_Mama.UserLogin.resources /ASSEMBLYRESOURCE:Debug\Busy_Mama.UserTasks.resources /ASSEMBLYRESOURCE:Debug\Busy_Mama.XXOO.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\lenovo\Documents\Visual Studio 2013\Projects\Busy_Mama\Debug\Busy_Mama.pdb" /ASSEMBLYDEBUG /TLBID:1 /ENTRY:"main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 "Debug\Conversions .obj"
+         Debug\main.obj
+         Debug\Priority_Queue.obj
+         Debug\Reminder.obj
+         Debug\Start.obj
+         Debug\Task.obj
+         Debug\User.obj
+         Debug\UserLogin.obj
+         Debug\UserTasks.obj
+         Debug\XXOO.obj
+         "Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
+         Busy_Mama.vcxproj -> C:\Users\lenovo\Documents\Visual Studio 2013\Projects\Busy_Mama\Debug\Busy_Mama.exe
+     1>Done Building Project "C:\Users\lenovo\Documents\Visual Studio 2013\Projects\Busy_Mama\Busy_Mama\Busy_Mama.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.71
